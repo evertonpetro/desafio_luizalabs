@@ -70,9 +70,13 @@ Consulta por id de pedido
 ```
 
 ## Características
-Nste projeto foi utilizado o framework reativo WebFlux baseado no projeto Reactor, biblioteca de programação reativa.
+Nste projeto foi utilizado o framework reativo *WebFlux* baseado no projeto *Reactor*, biblioteca de programação reativa.
 
-Pensando na simplicidade, o armazenamento dos dados foi feito com H2, um banco de dados escrito em Java e o conector R2DBC, que fornece uma API não-bloqueante totalmente reativa para bancos relacionais.
+Pensando na simplicidade, o armazenamento dos dados foi feito com ***H2***, um banco de dados escrito em Java e o conector ***R2DBC***, que fornece uma API não-bloqueante totalmente reativa para bancos relacionais.
+
+Uma das limitações do driver ***R2DBC*** é o mapeamento e joins entre entidades.
+Para superar esse problema, a solução foi implementar um componente que funciona como a classe *repository* padrão. A execução das consultas mais complexas ficou por conta de ***DatabaseClient***, uma das classes centrais do *core package* que pertence ao ***R2DBC***.   
+
 
 ## Testes
 Instruções para execução dos testes
