@@ -2,6 +2,7 @@
 
 ## Descrição
 Integração de um sistema legado através de um arquivo de pedidos desnormalizado.
+A solução encontrada foi criar três entidades **users**, **orders** e **order_products** e criar o relacionamento das informações, processando e transformando cada linha do arquivo.
 
 ## Tabela de Conteúdos
 1. [Instalação](#instalação)
@@ -39,6 +40,27 @@ curl --request GET \
     --url 'http://localhost:8080/v1/orders?startDate=2020-03-01&endDate=2023-12-31'
 ```
 ## Exemplos
+
+Formato da saída:
+```
+{
+    "user_id": [Number],
+    "name": [String],
+    "orders": [
+        {
+            "order_id": [Number],
+            "total": [Float],
+            "date": "[String]",
+            "products": [
+                {
+                    "product_id": [Number],
+                    "value": [Float]
+                }
+            ]
+        }
+    ]
+}
+```
 
 Consulta por id de pedido
 ```
